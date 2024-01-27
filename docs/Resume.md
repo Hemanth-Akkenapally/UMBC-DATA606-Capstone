@@ -11,9 +11,18 @@
 - Data visualization, Machine Learning, Database Management, Big Data, Probability and Statistics.
 ### Sreenidhi Institute of Science and Technology (Bachelors in Technology, Aug 2017 - Jul 2021)
 - Analog Communications, Digital Communications, Signals and Systems, Digital Electronics, Microwave and Antenna Communications, C, C++, Data Structures.
+## Skill Summary
+- Languages: Python, C++, SQL, HTML, CSS, JavaScript, JAVA
+- Frameworks: Scikit, Seaborn, Matplotlib
+- Tools: GIT, MySQL, SQLite, MATLAB, ANSYS HFSS
+- CRM Platforms: Salesforce
+- Operating Systems: Linux, Windows
+- Cloud Services: AWS, Microsoft Azure
+- Soft Skills: Public Speaking, Risk Management, Conflict Resolution
+
 ## Work Experience
 ### Cognizant Technology Solutions (Salesforce Developer, Sep 2021 - Jan 2023)
-- Using Lightning Builder and OmniStudio Flex Cards, enhanced the Main Console in Loan Application System on client portal using Salesforce.Developed an user interface, improved real-time features, and created a robust, user-friendly dashboard along with several reports. 
+- Using Lightning Builder and OmniStudio Flex Cards, enhanced the Main Console in Loan Application System on client portal using Salesforce.Developed an user interface, improved real-time features, and created a robust, user-friendly dashboard along with several reports. This streamlined the loan application process, providing instant updates and efficient user interactions. Each of the tasks contained many apex triggers, workflow automation.
 
 ## Projects
 ### Deployment of Webserver using AWS :
