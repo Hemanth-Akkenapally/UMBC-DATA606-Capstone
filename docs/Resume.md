@@ -2,7 +2,7 @@
 <img src="images/HemanthAkkenapally.jpg" alt="Hemanth" style="width:100px;height:100px;">\
 *1020 Courtney road, Maryland, 21227*\
 *+1 6674064046*\
-*akkenapallyhemanth@gmail.com*\
+*Email: akkenapallyhemanth@gmail.com*\
 *LinkedIn: [Akkenapally Hemanth](https://www.linkedin.com/in/hemanthakkenapally/)*\
 *GitHub: [Hemanth-Akkenapally](https://github.com/Hemanth-Akkenapally)*
 
