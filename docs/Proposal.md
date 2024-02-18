@@ -1,6 +1,6 @@
-## 1. Automatic Vehcile Plate Recognition using YOLOv4 
+## 1. Automatic Vehcile Number Plate Recognition using YOLOv4 
 
-- Automatic vehcile plate recognition using YOLOv4
+- Automatic vehcile Number plate recognition using YOLOv4
 - Prepared for UMBC Data Science Master Degree Capstone by Hemanth Akkenapally  under the guidance of Dr Chaojie (Jay) Wang
 - Author Name: Hemanth Akkenapally
 - LinkedIn: [Akkenapally Hemanth](https://www.linkedin.com/in/hemanthakkenapally/)
@@ -10,7 +10,7 @@
 ## 2. Background
 
 - What is it about?
-  - Automatic Number Plate recognition is a technology which uses optical character recognition to read vehicle plates. 
+  - Automatic vehcile Number Plate recognition is a technology which uses optical character recognition to read vehicle plates. 
   ANPR systems typically use cameras and specialized software to capture images of vehicles and extract the alphanumeric characters from their license plates.  
 - Why does it matter? 
   - This technology is commonly used in law enforcement for purposes such as traffic enforcement, vehicle tracking, and security surveillance. ANPR systems can automatically identify vehicles of interest by matching their license plate numbers against databases of vehicles of interest, stolen vehicles, or vehicles with outstanding warrants.
