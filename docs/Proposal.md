@@ -24,7 +24,7 @@ Describe the datasets you are using to answer your research questions.
 - Dataset is scrapped from open image dataset: "https://storage.googleapis.com/openimages/web/visualizer/index.html?type=detection&set=train&c=%2Fm%2F01jfm_"
 - Dataset contains Train, Validation and Test Images along with annotations.
   - Each image is scrapped with image file and a csv which contains the annotations of location of the plate.
-- Train dataset contains: 4200 images (total 4200 images + 4200 annotated entries in a csv file)
+- Train dataset contains: 1500 images (total 1500 images + 1500 annotated entries in a csv file)
 - Validation dataset contains: 300 images (total 300 images + 300 annotated entries in a csv file)
-- Test dataset contains: 500 images (total 1500 images + 500 annotated entries in a csv file)
+- Test dataset contains: 300 images (total 300 images + 300 annotated entries in a csv file)
 
