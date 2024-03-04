@@ -19,6 +19,8 @@
 6.	Setup the build file using OpenCV, darknet, before doing it we need to enable GPU, OpenCV and CUDA in Cmake file of darknet.
 7.	Now check using bash, whether darknet is working or not using commands.
 
+    <img src="images/Darknet.jpg" alt="Darknet" style="width:400px;height:200px;">
+
 #### References for above installations: 
 1.	https://arxiv.org/abs/2004.10934 
 2.	https://developer.nvidia.com/cuda-toolkit 
@@ -33,11 +35,13 @@ Images are of different license plates and labels has the coordinates of the lic
 #### Dataset Pre-Processing:
 1.	Convert the images and annotations into a .txt file which contains location of image and its labels.
 
+    <img src="images/traintxtfile.jpg" alt="traintxt" style="width:600px;height:100px;">
+
 2.	After getting the .txt file, we need to setup coco.data, coco.names and yolov4.cfg files.
 Classes represent the number of detection types.
 Ex: license plate is one of the classes.
 Train and valid path should be written in coco.data file.
-
+    <img src="images/cocodatafile.jpg" alt="traintxt" style="width:600px;height:150px;">
 * Coco.names is the file which we write the name of the detection type, i.e. License Number Plate.
 Inside yolov4.cfg file we need to change the filters, classes.
 
@@ -50,14 +54,14 @@ Inside yolov4.cfg file we need to change the filters, classes.
 * max_batches = (# of classes) * 2000, but no less than 6000 so if you are training for 1, 2, or 3 classes it will be 6000, however detector for 5 classes would have max_batches=10000
 * steps = (80% of max_batches), (90% of max_batches), so if your max_batches = 10000, then steps = 8000, 9000)
 * filters = (# of classes + 5) * 3, so if you are training for one class then your filters = 18, but if you are training for 4 classes then your filters = 27
-
+    <img src="images/yolov4cfgfile.jpg" alt="yolov4cfg" style="width:450px;height:200px;">
 
 
 * After configuring the yolov4.cfg, we need to open bash and train our model using coco.data and yolov4.cfg file.\
 ***“!./darknet detector train <path to obj.data> <path to custom config> yolov4.conv.137 -dont_show -map”***
 * Path to obj.data is coco.data, path to custom config is yolov4.cfg path.
 * After executing the following command training of the model will start on our custom dataset, it might take around 5hrs to train the model. Once the model is trained, we can use the model to detect the license plates.
-
+    <img src="images/runcocodata.jpg" alt="runcocodata" style="width:500px;height:250px;">
 
 #### Reference to configure YOLO for Custom Dataset: 
 https://colab.research.google.com/drive/1_GdoqCJWXsChrOiY8sZMr_zbr_fH-0Fg?usp=sharing#scrollTo=qaONUTI2l4Sf  
