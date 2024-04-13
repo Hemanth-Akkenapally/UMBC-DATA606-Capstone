@@ -6,16 +6,13 @@ from PIL import Image
 
 # Function to parse YOLOv4 output and extract bounding box coordinates
 def parse_yolov4_output(output):
-    # Parse the output string to extract bounding box coordinates
-    # Modify this function based on the actual format of YOLOv4 output
-    # For this example, let's assume the output format is [x_min, y_min, x_max, y_max]
+    # Simplified parsing function for YOLOv4 output
     detections = []
     for line in output.split('\n'):
         if line.startswith('Bounding Box'):
             parts = line.split(':')
             coordinates = parts[1].strip().split(',')
-            coordinates = [int(coord) for coord in coordinates]
-            detections.append(tuple(coordinates))
+            detections.append(tuple(map(int, coordinates)))
     return detections
 
 # Function to perform license plate detection using YOLOv4
@@ -42,12 +39,10 @@ def main():
 
     if uploaded_image is not None:
         image = Image.open(uploaded_image)
-        img_array = np.array(image)
 
         st.image(image, caption="Uploaded Image", use_column_width=True)
 
         if st.button('Detect License Plate'):
-            # Replace paths with actual paths to your trained model files
             weights_path = "/content/OIDv4_ToolKit/darknet/cfg/custom.weights"
             cfg_path = "/content/OIDv4_ToolKit/darknet/cfg/yolov4-custom.cfg"
             data_path = "/content/OIDv4_ToolKit/darknet/cfg/coco.data"
