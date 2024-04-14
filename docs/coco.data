@@ -1,0 +1,5 @@
+classes = 1
+train = /content/OIDv4_ToolKit/train.txt
+valid = /content/OIDv4_ToolKit/test.txt
+names = /content/OIDv4_ToolKit/darknet/cfg/coco.names
+backup = /content/OIDv4_ToolKit
