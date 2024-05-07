@@ -16,7 +16,7 @@ YOLOv4 starts with a stable and consistent backbone network, often based on Dark
 - Detection Head:
 YOLOv4's detection head predicts bounding boxes and class probabilities. It utilizes feature pyramid networks (FPN) for multiscale feature fusion, enabling precise and accurate detection across different object sizes. Techniques like Mish activation functions and spatial pyramid pooling (SPP) enhance feature representation and context modeling for improved accuracy.
 
-<img src="/workspace/UMBC-DATA606-Capstone/docs/images/yolov4arch.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 300px; height: 150px;">
+<img src="images/yolov4arch.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 400px; height: 200px;">
 
 - Darknet is a deep convolutional neural network (CNN) architecture designed for fast and efficient object detection. It is known for its simplicity and effectiveness in processing visual data, making it suitable for real-time applications like YOLOv4.
 - Darknet is loaded from the following github: https://github.com/AlexeyAB/darknet.
