@@ -11,7 +11,7 @@
 ## 1. Introduction
 
 - YOLO is You Only Look Once, it is an object detection model. they are trained to look at an image and search for a specified object classes. After founding the objects, they are bounded by a box and class is identified.
-- yolov4 architecture is shown in pictorial representation where it has 2 stages to detect the class which is mentioned in configuration file. 
+- YOLOv4 architecture is shown in pictorial representation where it has 2 stages to detect the class which is mentioned in configuration file. 
 - Backbone Network:
 YOLOv4 starts with a stable and consistent backbone network, often based on Darknet architecture. This network extracts essential features from the input image through convolutional layers. Components like CSPDarknet53 to enhance feature reuse and reduce computational complexity.
 - Detection Head:
@@ -38,18 +38,22 @@ YOLOv4's detection head predicts bounding boxes and class probabilities. It util
   
 ## 3. Data 
 
-- Dataset is scrapped from open image dataset: "https://storage.googleapis.com/openimages/web/visualizer/index.html?type=detection&set=train&c=%2Fm%2F01jfm_"
+- Dataset is scrapped from open image dataset: "https://storage.googleapis.com/openimages/web/visualizer/index.html?type=detection&set=train&c=%2Fm%2F01jfm_" using OIDv4Toolkit.
+
+<img src="images/datasetdownload.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 400px; height: 250px;">
+
 - Dataset contains Train, Validation and Test Images along with annotations.
   - Each image is scrapped with image file and a csv which contains the annotations of location of the plate.
 - Train dataset contains: 1500 images (total 1500 images + 1500 annotated entries in a csv file)
 - Validation dataset contains: 300 images (total 300 images + 300 annotated entries in a csv file)
 - Test dataset contains: 300 images (total 300 images + 300 annotated entries in a csv file)
+- dataset is downloaded inside a folder called OIDv4Toolkit. 
 
 ## 4. Data Prepocessing
 
 <img src="images/dataset.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 400px; height: 300px;">
 
-- Data is downloaded in images and its annotations  
+- Data is downloaded in the format of images and its annotations  
    ex: Vehicle registration plate 622.72 405.75974400000007 798.08 494.079744 
 - Train,Test and valid dataset images and annotations are downloaded, after getting the data we need to create a text file to support for training of YOLOv4.
 - Each dataset has its seperate text file where image locations are mentioned like below
@@ -60,9 +64,39 @@ YOLOv4's detection head predicts bounding boxes and class probabilities. It util
 - To get the locations txt file, you can run textfile.py which is inside notebooks folder.
 - Now get darknet running inside your colab file.
 
-## 5. Model Training 
+## 5. Model Training using License Custom dataset
 
-- 
+- **Darknet build and detection test:**
+  - Before going for the training yolov4 model, there are some configurations and notes to make. Note down the paths of datasets train and test, txtfile and also class name i.e; vehicle registration plate.
+  - Now install darknet to run the yolov4 model, official complete darknet is cloned from git hub repo of alexyAB darknet.
+  - after downloading, go to darknet directory. Now build the binary files which are required for the nueral network to run using cmake command inside darknet folder.
+  - Cmake command builds the make files, it reads the cmakelists.txt file which contains the configuration instructions for the build process for darknet.
+  - Cmakelists.txt has this following edits:\
+  %cd darknet\
+  !sed -i 's/OPENCV=0/OPENCV=1/' Makefile\
+  !sed -i 's/GPU=0/GPU=1/' Makefile\
+  !sed -i 's/CUDNN=0/CUDNN=1/' Makefile\
+  !sed -i 's/CUDNN_HALF=0/CUDNN_HALF=1/' Makefile
+  - After generating the make files, now download the pre-trained weights for nueral network. pre-trained weights are the weights which we use to predict the inital error in the first layer of network. it generates the weights for next layer to reduce the error and iterated through whole process.
+  - After getting the weights, Test the darknet functionality by running the detection of an image which are already present inside data folder in darknet.
+  - Write a helper function which displays the image after predicting the objects.
+
+  <img src="images/testprediction.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 400px; height: 200px;">
+
+  - upon successful detection, now modify the darknet files for the custom license dataset
+
+- **Darknet configuration for Custom License Dataset:**
+  - YOLOv4 object detection runs for several classes by default, we need to modify it to run on only specific class based on our requirements.
+  - To run the YOLO on custom dataset we need to make some modification inside darknet directory:
+  1. custom cfg file
+  2. coco.data and coco.names
+  3. train.txt file and test.txt file(optional)
+  -  change coco.names file and enter the name of the custom object name: vehicle registration plate.
+
+  <img src="images/coconame.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 200px; height: 100px;">
+  
+  - 
+
 
 ## 6. Application of the Trained Models
 
