@@ -59,7 +59,7 @@ YOLOv4's detection head predicts bounding boxes and class probabilities. It util
 - Each dataset has its seperate text file where image locations are mentioned like below
 - Example: Train.txt, Test.txt and Valid.txt
 
-<img src="images/txtfile.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 400px; height: 150px;">
+<img src="images/txtfile.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 400px; height: 120px;">
 
 - To get the locations txt file, you can run textfile.py which is inside notebooks folder.
 - Now get darknet running inside your colab file.
@@ -94,9 +94,12 @@ YOLOv4's detection head predicts bounding boxes and class probabilities. It util
   -  change coco.names file and enter the name of the custom object name: vehicle registration plate.
 
   <img src="images/coconame.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 200px; height: 100px;">
-  
-  - 
 
+  - Now modify coco.data, A file where we use to train the model. Inside coco.data we will set up the location of train.txt, test.txt, coco.names, number of classes and a backup location for weights to download.
+
+  <img src="images/cocodata.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 200px; height: 100px;">
+
+  - yolov4-custom.cfg is 
 
 ## 6. Application of the Trained Models
 
