@@ -43,7 +43,7 @@ YOLOv4's detection head predicts bounding boxes and class probabilities. It util
 <img src="images/datasetdownload.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 400px; height: 250px;">
 
 - Dataset contains Train, Validation and Test Images along with annotations.
-  - Each image is scrapped with image file and a csv which contains the annotations of location of the plate.
+- Each image is scrapped with image file and a csv which contains the annotations of location of the plate.
 - Train dataset contains: 1500 images (total 1500 images + 1500 annotated entries in a csv file)
 - Validation dataset contains: 300 images (total 300 images + 300 annotated entries in a csv file)
 - Test dataset contains: 300 images (total 300 images + 300 annotated entries in a csv file)
@@ -65,41 +65,76 @@ YOLOv4's detection head predicts bounding boxes and class probabilities. It util
 - Now get darknet running inside your colab file.
 
 ## 5. Model Training using License Custom dataset
-
-- **Darknet build and detection test:**
-  - Before going for the training yolov4 model, there are some configurations and notes to make. Note down the paths of datasets train and test, txtfile and also class name i.e; vehicle registration plate.
-  - Now install darknet to run the yolov4 model, official complete darknet is cloned from git hub repo of alexyAB darknet.
-  - after downloading, go to darknet directory. Now build the binary files which are required for the nueral network to run using cmake command inside darknet folder.
-  - Cmake command builds the make files, it reads the cmakelists.txt file which contains the configuration instructions for the build process for darknet.
-  - Cmakelists.txt has this following edits:\
-  %cd darknet\
-  !sed -i 's/OPENCV=0/OPENCV=1/' Makefile\
-  !sed -i 's/GPU=0/GPU=1/' Makefile\
-  !sed -i 's/CUDNN=0/CUDNN=1/' Makefile\
-  !sed -i 's/CUDNN_HALF=0/CUDNN_HALF=1/' Makefile
-  - After generating the make files, now download the pre-trained weights for nueral network. pre-trained weights are the weights which we use to predict the inital error in the first layer of network. it generates the weights for next layer to reduce the error and iterated through whole process.
-  - After getting the weights, Test the darknet functionality by running the detection of an image which are already present inside data folder in darknet.
-  - Write a helper function which displays the image after predicting the objects.
+- **Darknet Build and Detection Test:**
+  - Before training the YOLOv4 model, there are some configurations and notes to address. Record the paths of the dataset's train and test sets, the txt file, and the class name, e.g., vehicle registration plate.
+  - Install Darknet to run the YOLOv4 model. Clone the official Darknet repository from AlexeyAB's GitHub.
+  - After downloading, navigate to the Darknet directory. Build the required binary files for the neural network to run using the cmake command inside the Darknet folder.
+  - The cmake command builds the makefiles. It reads the `CMakeLists.txt` file, which contains configuration instructions for the Darknet build process.
+  - The `CMakeLists.txt` should include the following edits:\
+    ```sh
+    %cd darknet
+    !sed -i 's/OPENCV=0/OPENCV=1/' Makefile
+    !sed -i 's/GPU=0/GPU=1/' Makefile
+    !sed -i 's/CUDNN=0/CUDNN=1/' Makefile
+    !sed -i 's/CUDNN_HALF=0/CUDNN_HALF=1/' Makefile
+    ```
+  - After generating the makefiles, download the pre-trained weights for the neural network. These weights are used to predict the initial error in the first layer of the network and to generate the weights for subsequent layers to reduce the error iteratively.
+  - Test the Darknet functionality by running a detection on an image already present in the data folder in Darknet.
+  - Write a helper function to display the image after predicting the objects.
 
   <img src="images/testprediction.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 400px; height: 200px;">
 
-  - upon successful detection, now modify the darknet files for the custom license dataset
+  - Upon successful detection, modify the Darknet files for the custom license dataset.
 
-- **Darknet configuration for Custom License Dataset:**
-  - YOLOv4 object detection runs for several classes by default, we need to modify it to run on only specific class based on our requirements.
-  - To run the YOLO on custom dataset we need to make some modification inside darknet directory:
-  1. custom cfg file
-  2. coco.data and coco.names
-  3. train.txt file and test.txt file(optional)
-  -  change coco.names file and enter the name of the custom object name: vehicle registration plate.
+- **Darknet Configuration for Custom License Dataset:**
+  - YOLOv4 object detection runs for several classes by default, but it needs to be modified to run for specific classes based on requirements.
+  - To run YOLO on a custom dataset, make the following modifications inside the Darknet directory:
+    1. Custom cfg file
+    2. `coco.data` and `coco.names`
+    3. `train.txt` file and `test.txt` file (optional)
+  - Change the `coco.names` file to include the name of the custom object: vehicle registration plate.
 
   <img src="images/coconame.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 200px; height: 100px;">
 
-  - Now modify coco.data, A file where we use to train the model. Inside coco.data we will set up the location of train.txt, test.txt, coco.names, number of classes and a backup location for weights to download.
+  - Modify `coco.data`, which is used to train the model. Inside `coco.data`, set the locations of `train.txt`, `test.txt`, `coco.names`, the number of classes, and a backup location for weights.
 
   <img src="images/cocodata.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 200px; height: 100px;">
 
-  - yolov4-custom.cfg is 
+  - `yolov4-custom.cfg` is the configuration file where the architecture and parameters for training object detection are specified.
+  - The cfg file contains specific sections to be modified for custom object detection:
+    1. Network architecture
+    2. Input dimensions
+    3. Batch size and subdivisions
+    4. Training parameters
+    5. Anchor boxes
+    6. Classes
+    7. Filters
+    8. Augmentation and preprocessing
+  - I suggest setting **batch = 64** and **subdivisions = 16** for optimal results. If you encounter any issues, increase subdivisions to 32.
+
+  Adjust the rest of the cfg file based on the number of classes your detector will be training on.
+
+  **Note:** 
+  I set **max_batches = 6000** and **steps = 4800, 5400**. I changed **classes = 1** in the three YOLO layers and **filters = 18** in the three convolutional layers preceding the YOLO layers.
+
+  **Configuring Your Variables:**
+
+  - **width = 416**
+  - **height = 416**  
+  *(These should be multiples of 32. The standard is 416, but increasing this to values like 608 can sometimes improve results, though it will slow down training.)*
+
+  - **max_batches = (number of classes) * 2000**  
+  *(But no fewer than 6000, so for 1, 2, or 3 classes, max_batches should be 6000. For 5 classes, max_batches would be 10000.)*
+
+  - **steps = (80% of max_batches), (90% of max_batches)**  
+  *(For example, if max_batches = 10000, then steps = 8000, 9000.)*
+
+  - **filters = (number of classes + 5) * 3**  
+  *(So if you are training for one class, filters = 18. For four classes, filters would be 27.)*
+
+  **Optional:** If you experience memory issues or prolonged training times, change **random = 1** to **random = 0** in each of the three YOLO layers in the cfg file. This will speed up training and save memory, though it may slightly reduce model accuracy.
+
+**All files are uploaded inside the [GitHub repo folder docs and notebooks](https://github.com/Hemanth-Akkenapally/UMBC-DATA606-Capstone). Change it according to your project requirements.**
 
 ## 6. Application of the Trained Models
 
