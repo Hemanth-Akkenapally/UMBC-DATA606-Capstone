@@ -6,6 +6,7 @@
 - LinkedIn: Akkenapally Hemanth
 - GitHub: Hemanth-Akkenapally
 - PowerPoint presentation: https://github.com/Hemanth-Akkenapally/UMBC-DATA606-Capstone/blob/main/docs/Capstone_Hemanth.pptx
+- Youtube Link: https://youtu.be/zSoCnQFCELM
     
 ## 1. Introduction
 
@@ -20,7 +21,10 @@ YOLOv4's detection head predicts bounding boxes and class probabilities. It util
 
 - Darknet is a deep convolutional neural network (CNN) architecture designed for fast and efficient object detection. It is known for its simplicity and effectiveness in processing visual data, making it suitable for real-time applications like YOLOv4.
 - Darknet is loaded from the following github: https://github.com/AlexeyAB/darknet.
-- 
+- performance difference listed in below picture.
+
+<img src="images/versions.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 400px; height: 300px;">
+
 ## 2. Background
 
 - What is it about?
@@ -41,31 +45,24 @@ YOLOv4's detection head predicts bounding boxes and class probabilities. It util
 - Validation dataset contains: 300 images (total 300 images + 300 annotated entries in a csv file)
 - Test dataset contains: 300 images (total 300 images + 300 annotated entries in a csv file)
 
-## 4. Exploratory Data Analysis (EDA)
+## 4. Data Prepocessing
 
-- Perform data exploration using Jupyter Notebook
-- You would focus on the target variable and the selected features and drop all other columns.
-- produce summary statistics of key variables
-- Create visualizations (I recommend using **Plotly Express**)
-- Find out if the data require cleansing:
-  - Missing values?
-  - Duplicate rows? 
-- Find out if the data require splitting, merging, pivoting, melting, etc.
-- Find out if you need to bring in other data sources to augment your data.
-  - For example, population, socioeconomic data from Census may be helpful.
-- For textual data, you will pre-process (normalize, remove stopwords, tokenize) them before you can analyze them in predictive analysis/machine learning.
-- Make sure the resulting dataset need to be "tidy":
-  - each row represent one observation (ideally one unique entity/subject).
-  - each columm represents one unique property of that entity. 
+<img src="images/dataset.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 400px; height: 300px;">
+
+- Data is downloaded in images and its annotations  
+   ex: Vehicle registration plate 622.72 405.75974400000007 798.08 494.079744 
+- Train,Test and valid dataset images and annotations are downloaded, after getting the data we need to create a text file to support for training of YOLOv4.
+- Each dataset has its seperate text file where image locations are mentioned like below
+- Example: Train.txt, Test.txt and Valid.txt
+
+<img src="images/txtfile.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 400px; height: 150px;">
+
+- To get the locations txt file, you can run textfile.py which is inside notebooks folder.
+- Now get darknet running inside your colab file.
 
 ## 5. Model Training 
 
-- What models you will be using for predictive analytics?
-- How will you train the models?
-  - Train vs test split (80/20, 70/30, etc.)
-  - Python packages to be used (scikit-learn, NLTK, spaCy, etc.)
-  - The development environments (your laptop, Google CoLab, GitHub CodeSpaces, etc.)
-- How will you measure and compare the performance of the models?
+- 
 
 ## 6. Application of the Trained Models
 
