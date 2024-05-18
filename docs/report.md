@@ -135,21 +135,43 @@ YOLOv4's detection head predicts bounding boxes and class probabilities. It util
   **Optional:** If you experience memory issues or prolonged training times, change **random = 1** to **random = 0** in each of the three YOLO layers in the cfg file. This will speed up training and save memory, though it may slightly reduce model accuracy.
 
 **All files are uploaded inside the [GitHub repo folder docs and notebooks](https://github.com/Hemanth-Akkenapally/UMBC-DATA606-Capstone). Change it according to your project requirements.**
+## 6. Results
+- Trained model generetes a set of weights like first 1000, 2000, 3000 and best. we will use best weights for testing the images we took in real time. 
+- After training YOLO model, it will generate a graph which shows us the error rate for every iterations which Loss graph and mAP plot in a single graph.
+- Loss graph explains us the loss values over time. If the loss plateaus or increases, it indicates overfitting or need a further tuning of the parameters in cfg file.
+- Our model is good to use since the graph shows less than 0.1% loss.
+- Mean average precision measures the precision of the model in detection the objects across different classes. High mean average precision indicates better performance model.
+ 
+<img src="/workspace/UMBC-DATA606-Capstone/docs/Errorvsiterations.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 300px; height: 250px;">
 
-## 6. Application of the Trained Models
+- We will use custom.weights file which is generated after training the model to test the object detection. 
 
-Develop a web app for people to interact with your trained models. Potential tools for web app development:
+<img src="/workspace/UMBC-DATA606-Capstone/docs/outputcolab.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 250px; height:250px;"> 
 
-- **Streamlit Application :** 
+- Output shows 98 percent accuracy that the license plate is detected.
 
-## 7. Conclusion
+## 7. Application of the Trained Models
 
-- Summarize your work and its potetial application
-- Point out the limitations of your work
-- Lessons learned 
-- Talk about future research direction
+- **Streamlit Application :** For machine learning and data science projects, Streamlit is an open-source Python toolkit that makes it easier to create and distribute eye-catching, unique web applications. Because of its intuitive and user-friendly design, developers may create interactive applications with little to no code.
 
-## 8. References 
+- Streamlit has many benefits, including simple deployment, real-time engagement, connectivity with data science libraries, and ease of use. It also offers choices for altering the arrangement to meet various project specifications.
+
+<img src="/workspace/UMBC-DATA606-Capstone/docs/streamlitwebpage.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 250px; height:250px;">
+
+
+- This is the webpage we developed using streamlit application. We can directly upload an image and run the detection button then it runs the detection in the background colab and gives us the output along with accuracy.
+
+<img src="/workspace/UMBC-DATA606-Capstone/docs/outputstreamlit.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 250px; height:250px;">
+
+
+## 8. Conclusion
+
+- YOLOv4 (You Only Look Once, version 4) model is an advanced and efficient object detection algorithm, particularly well-suited for real-time applications such as license plate detection. 
+- This model strikes an excellent balance between speed and accuracy, making it ideal for scenarios where rapid and reliable detection is crucial. By leveraging its sophisticated architecture, which includes innovations like CSPDarknet53, PANet, and SPP, YOLOv4 achieves high precision in identifying and localizing license plates even under challenging conditions such as varying lighting, angles, and partial occlusions. 
+- The model's adaptability through customizable parameters allows it to be fine-tuned for specific use cases and hardware configurations. 
+- Overall, YOLOv4's capability to deliver robust performance makes it a valuable tool in traffic management, parking systems, and security surveillance, enhancing the automation and efficiency of these applications.
+
+## 9. References 
 
 1. https://www.mdpi.com/2075-1680/12/5/424
 2. https://roboflow.com/model/yolov4
