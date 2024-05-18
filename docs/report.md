@@ -1,10 +1,10 @@
 # Automatic License Number Plate Recognition using YOLOv4 and darknet
-
+ ### Hemanth Akkenapally- 4th Semester
 - Automatic License Number plate recognition using YOLOv4
 - Prepared for UMBC Data Science Master Degree Capstone by Hemanth Akkenapally under the guidance of Dr Chaojie (Jay) Wang
 - Author Name: Hemanth Akkenapally
-- LinkedIn: Akkenapally Hemanth
-- GitHub: Hemanth-Akkenapally
+- LinkedIn: [Akkenapally Hemanth](https://www.linkedin.com/in/hemanthakkenapally/)
+- GitHub: [Hemanth-Akkenapally](https://github.com/Hemanth-Akkenapally/UMBC-DATA606-Capstone)
 - PowerPoint presentation: https://github.com/Hemanth-Akkenapally/UMBC-DATA606-Capstone/blob/main/docs/Capstone_Hemanth.pptx
 - Youtube Link: https://youtu.be/zSoCnQFCELM
     
