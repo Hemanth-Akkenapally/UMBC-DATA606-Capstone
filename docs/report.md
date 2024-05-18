@@ -142,11 +142,11 @@ YOLOv4's detection head predicts bounding boxes and class probabilities. It util
 - Our model is good to use since the graph shows less than 0.1% loss.
 - Mean average precision measures the precision of the model in detection the objects across different classes. High mean average precision indicates better performance model.
  
-<img src="/workspace/UMBC-DATA606-Capstone/docs/Errorvsiterations.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 300px; height: 250px;">
+<img src="images/Errorvsiterations.png" alt="Graph" style="display: block; margin-left: auto; margin-right: auto; width: 300px; height: 250px;">
 
 - We will use custom.weights file which is generated after training the model to test the object detection. 
 
-<img src="/workspace/UMBC-DATA606-Capstone/docs/outputcolab.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 250px; height:250px;"> 
+<img src="images/outputcolab.png" alt="output colab" style="display: block; margin-left: auto; margin-right: auto; width: 250px; height:250px;"> 
 
 - Output shows 98 percent accuracy that the license plate is detected.
 
@@ -156,12 +156,12 @@ YOLOv4's detection head predicts bounding boxes and class probabilities. It util
 
 - Streamlit has many benefits, including simple deployment, real-time engagement, connectivity with data science libraries, and ease of use. It also offers choices for altering the arrangement to meet various project specifications.
 
-<img src="/workspace/UMBC-DATA606-Capstone/docs/streamlitwebpage.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 250px; height:250px;">
+<img src="images/streamlitwebpage.png" alt="Web Page" style="display: block; margin-left: auto; margin-right: auto; width: 250px; height:250px;">
 
 
 - This is the webpage we developed using streamlit application. We can directly upload an image and run the detection button then it runs the detection in the background colab and gives us the output along with accuracy.
 
-<img src="/workspace/UMBC-DATA606-Capstone/docs/outputstreamlit.png" alt="yolov4arch" style="display: block; margin-left: auto; margin-right: auto; width: 250px; height:250px;">
+<img src="images/outputstreamlit.png" alt="Outout Streamlit" style="display: block; margin-left: auto; margin-right: auto; width: 250px; height:250px;">
 
 
 ## 8. Conclusion
